@@ -56,9 +56,15 @@ const icons = [
 function App() {
   const [s, setS] = useState<Saved>(() => {
     try {
+      const saved = JSON.parse(localStorage.getItem("movement-lab-v1") || "{}");
       return {
         ...initial,
-        ...JSON.parse(localStorage.getItem("movement-lab-v1") || "{}"),
+        ...saved,
+        // Upgrade existing sessions without deleting work or custom teacher links.
+        videos: saved.mediaVersion === initial.mediaVersion
+          ? (saved.videos ?? initial.videos)
+          : initial.videos.map((url, i) => saved.videos?.[i]?.trim() || url),
+        mediaVersion: initial.mediaVersion,
       };
     } catch {
       return initial;
@@ -1114,7 +1120,7 @@ function App() {
               </label>
               <h3>Athlete footage</h3>
               <p className="muted">
-                Use direct HTTPS video URLs (e.g. MP4), with permission to use
+                Use bundled /videos/ paths or direct HTTPS video URLs (e.g. MP4), with permission to use
                 the footage. Embed pages such as YouTube are not direct video
                 files.
               </p>
@@ -1122,7 +1128,7 @@ function App() {
                 <label className="field-label" key={a.name}>
                   {a.name} · {a.sport}
                   <input
-                    type="url"
+                    type="text"
                     placeholder="https://school.example/athlete.mp4"
                     value={s.videos[i]}
                     onChange={(e) =>

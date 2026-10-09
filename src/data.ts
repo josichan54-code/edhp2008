@@ -156,6 +156,7 @@ export type Saved = {
   inboxDone: boolean;
   reflection: string;
   videos: string[];
+  mediaVersion?: number;
   feedback: boolean;
 };
 export const initial: Saved = {
@@ -180,6 +181,7 @@ export const initial: Saved = {
   inbox: "",
   inboxDone: false,
   reflection: "",
-  videos: ["", "", "", ""],
+  videos: ["/videos/jordan-beginner-layup.mp4", "/videos/sophie-refining-serve.mp4", "/videos/noah-receive-scan-pass.mp4", "/videos/isla-freestyle-efficiency.mp4"],
+  mediaVersion: 1,
   feedback: true,
 };

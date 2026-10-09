@@ -13,7 +13,7 @@ npm run dev
 
 ## Teaching
 
-Use Teacher Mode to toggle explanatory feedback, reveal suggested analyses, jump between activities, reset student work and add direct HTTPS MP4/video URLs. Footage must be appropriate and licensed for classroom use. Player frame stepping approximates 30 fps. No sporting footage is bundled. Students can use supplied profile evidence before footage is added.
+Use Teacher Mode to toggle explanatory feedback, reveal suggested analyses, jump between activities, reset student work and add direct HTTPS MP4/video URLs. Footage must be appropriate and licensed for classroom use. Player frame stepping approximates 30 fps. The four supplied athlete clips are bundled in `public/videos` and available to all students. Existing sessions receive these defaults without losing responses or custom teacher links. Students can use supplied profile evidence before footage is added.
 
 Student responses, notes, video settings and progress are stored in this browser's localStorage. Reset retains teacher video links and feedback settings. Clearing browser storage removes saved work. There is no transmission of inbox responses.
 

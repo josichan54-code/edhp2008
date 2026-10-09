@@ -159,6 +159,8 @@ export function Video({
             key={url}
             ref={ref}
             src={url}
+            preload="metadata"
+            playsInline
             controls
             onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
             onPlay={() => setPlaying(true)}
